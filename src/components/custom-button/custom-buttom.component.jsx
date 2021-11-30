@@ -8,3 +8,9 @@ const CustomButton = ({children, isGoogleSignIn, inverted, ...otherProps}) => (
 
 )
 export default CustomButton;
+
+
+// to use the styled component
+// const CustomButton = ({ children, ...props }) => (
+//   <CustomButtonContainer {...props}>{children}</CustomButtonContainer>
+//   );
