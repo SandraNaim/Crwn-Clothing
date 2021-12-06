@@ -24,7 +24,11 @@ class App extends React.Component {
   componentDidMount() {
     const {setCurrentUser} = this.props
 
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+    // the unsubscribeFromAuth works as a listner to the observer which is onAuthStateChanged
+    // this listner will be distroyed or stop listening in the componentWillUnmount
+    // this observer has only one function in this case which is the next fn
+    // this observer wait nd subscibe the login and logout events
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => { 
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
