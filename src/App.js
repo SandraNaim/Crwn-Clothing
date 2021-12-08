@@ -20,28 +20,23 @@ class App extends React.Component {
 
   unsubscribeFromAuth = null;
 
-  // remove the setState and replace it with the stored value as props
   componentDidMount() {
     const {setCurrentUser} = this.props
 
-    // the unsubscribeFromAuth works as a listner to the observer which is onAuthStateChanged
-    // this listner will be distroyed or stop listening in the componentWillUnmount
-    // this observer has only one function in this case which is the next fn
-    // this observer wait nd subscibe the login and logout events
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => { 
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
+    // this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => { 
+    //   if (userAuth) {
+    //     const userRef = await createUserProfileDocument(userAuth);
 
-        userRef.onSnapshot(snapShot => {
-          setCurrentUser({
-            id: snapShot.id,
-            ...snapShot.data()
-          });
-        });
-      }
+    //     userRef.onSnapshot(snapShot => {
+    //       setCurrentUser({
+    //         id: snapShot.id,
+    //         ...snapShot.data()
+    //       });
+    //     });
+    //   }
 
-      setCurrentUser(userAuth) ;
-    });
+    //   setCurrentUser(userAuth) ;
+    // });
   }
 
   componentWillUnmount(){
