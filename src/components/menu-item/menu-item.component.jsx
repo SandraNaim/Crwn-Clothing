@@ -9,7 +9,7 @@ const MenuItem = ({ title, imageUrl, size, history, linkUrl }) => (
         }}/>
         <div className="content">
             <h1 className="title">{title.toUpperCase()}</h1>
-            <a className="subtitle">Shop Now</a>
+            <a href="/#" className="subtitle">Shop Now</a>
         </div>
     </div>
 )
